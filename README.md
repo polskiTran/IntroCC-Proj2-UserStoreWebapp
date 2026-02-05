@@ -42,7 +42,18 @@ Install `sqlite3` if not found
 sudo apt install sqlite3
 ```
 
+Install `nginx`
+```shell
+sudo apt install nginx
+```
+
 Make sure python is installed
 ```shell
 python3 --version
+```
+
+Git clone this repo
+```shell
+cd
+git clone https://github.com/polskiTran/IntroCC-Proj2-UserStoreWebapp.git
 ```

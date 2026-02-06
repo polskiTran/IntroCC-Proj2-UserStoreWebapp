@@ -12,6 +12,17 @@ export default defineConfig({
         resolve: {
             alias: [{ find: "@", replacement: "/src" }],
         },
+        server: {
+            host: "0.0.0.0",
+            // https: true, // Enable HTTPS with self
+            hmr: {
+                // host: [
+                //     "3.144.215.198",
+                //     "ec2-3-144-215-198.us-east-2.compute.amazonaws.com",
+                // ],
+                host: "3.144.215.198",
+            },
+        },
     },
 
     integrations: [react()],

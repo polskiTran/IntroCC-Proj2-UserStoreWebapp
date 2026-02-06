@@ -14,8 +14,14 @@ node_modules
 __pycache__
 
 # database
-.db
+*.db
 
 # private keys
 # EC2
 *.pem
+
+# session cookie
+session
+
+# upload files
+*/uploads/*.txt

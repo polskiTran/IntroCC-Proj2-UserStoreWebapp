@@ -14,7 +14,7 @@ node_modules
 __pycache__
 
 # database
-#*.db
+*.db
 
 # private keys
 # EC2

@@ -57,6 +57,33 @@ git clone https://github.com/polskiTran/IntroCC-Proj2-UserStoreWebapp.git
 
 ### Running the webapp
 ```bash
+# Setup nginx reverse proxy
+sudo vim /etc/nginx/sites-enabled/fastapi_nginx
+```
+Code for nginx
+```bash
+server {
+    listen 80;
+    server_name [your_web_page_ip_address];
+
+    # 1. Route API requests to FastAPI
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # 2. Route everything else to Astro
+    location / {
+        proxy_pass http://127.0.0.1:4321;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+
+```bash
 # Backend
 cd backend/
 tmux new -s backend

@@ -60,7 +60,7 @@ git clone https://github.com/polskiTran/IntroCC-Proj2-UserStoreWebapp.git
 # Setup nginx reverse proxy
 sudo vim /etc/nginx/sites-enabled/fastapi_nginx
 ```
-Code for nginx
+Code for nginx:
 ```bash
 server {
     listen 80;
@@ -81,8 +81,12 @@ server {
     }
 }
 ```
+```bash
+# Reload nginx config
+sudo systemctl reload nginx
+```
 
-
+#### Opt 1: Runinng the app manually
 ```bash
 # Backend
 cd backend/
@@ -98,6 +102,15 @@ npm run dev
 ## Prod
 npm run build
 npm run preview
+```
+
+#### Opt 2: Using the `bash` script
+```bash
+# make script executable
+chmod +x run_app.sh 
+
+# execute 
+./run_app.sh
 ```
 
 > Tmux note

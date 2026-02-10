@@ -64,7 +64,7 @@ Code for nginx:
 ```bash
 server {
     listen 80;
-    server_name [your_web_page_ip_address];
+    server_name [your_web_page_ip_address + dns];
 
     # 1. Route API requests to FastAPI
     location /api/ {
@@ -81,9 +81,15 @@ server {
     }
 }
 ```
+Increase server_names_hash_bucket_size to 128 for the long ec2 dns 
+```bash
+sudo vim /etc/nginx/nginx.conf
+```
+
+Reload Nginx
 ```bash
 # Reload nginx config
-sudo systemctl reload nginx
+sudo systemctl daemon-reload
 ```
 
 #### Opt 1: Runinng the app manually
